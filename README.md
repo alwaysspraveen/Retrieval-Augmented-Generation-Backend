@@ -1,5 +1,5 @@
 
-# 🧠 Self-Reflection Agentic RAG Model
+# 🧠 Self-Reflection Agentic RAG Backend
 
 A production-ready **Agentic RAG (Retrieval-Augmented Generation)** backend built with **Node.js + TypeScript**, designed to provide **autonomous reasoning, memory, and self-improving AI responses**.  
 It combines **retrieval, self-reflection, memory storage, and planning** to deliver more accurate, contextual, and human-like answers over time.
@@ -24,26 +24,32 @@ This backend goes beyond simple RAG by adding **agentic intelligence** and **sel
 agentic-rag-backend/
 │
 ├─ src/
-│  ├─ agent/               # Core agent logic
-│  │   ├─ planner.ts       # Breaks queries into subtasks
-│  │   ├─ reflection.ts    # Self-reflection loop
-│  │   ├─ executor.ts      # Tool orchestration
-│  │   └─ memory.ts        # Short-term & long-term memory
+│  ├─ ocr/                         # OCR-related services
+│  │   └─ ocr_service/
+│  │       └─ ocrClient.ts
 │  │
-│  ├─ retrieval/           # Vector store & retrieval logic
-│  │   ├─ embedder.ts      # Embedding generation
-│  │   ├─ vectorStore.ts   # FAISS / SQLite storage
-│  │   └─ retriever.ts     # Semantic search
+│  ├─ uploads/                    # Uploaded documents (temporary storage)
+│  ├─ vectorstores/               # Persistent vector DB files
 │  │
-│  ├─ api/                 # Express REST API
-│  │   └─ routes.ts        # `/rag/query`, `/ingest`, etc.
-│  │
-│  ├─ utils/               # Helpers & config
-│  │   └─ logger.ts
-│  │
-│  └─ server.ts            # Entry point
+│  ├─ agent.ts                    # Main agent logic (planning + orchestration)
+│  ├─ env.ts                      # Environment variable loader
+│  ├─ ingest.ts                   # Document ingestion and embedding
+│  ├─ initMemory.ts              # Initializes memory system
+│  ├─ loaders.ts                 # Dynamic data loaders
+│  ├─ lookupMemory.ts            # Search in stored memory
+│  ├─ memory.ts                  # Short-term + long-term memory logic
+│  ├─ prompts.ts                 # Prompt templates and system messages
+│  ├─ reflectionMemory.ts       # Stores self-reflection feedback
+│  ├─ reflector.ts              # Self-reflection engine
+│  ├─ retrieval.ts              # Semantic retrieval from vector store
+│  ├─ server.ts                 # Express API entry point
+│  ├─ storeToMemory.ts          # Utility for storing new info into memory
+│  ├─ tempTest.ts               # Dev/test scripts
+│  ├─ tools.ts                  # External tool interfaces
+│  ├─ types.ts                  # TypeScript types and interfaces
+│  └─ vectorstore.ts            # Vector store initialization and management
 │
-├─ .env.example            # Environment variable template
+├─ .env.example                  # Environment variable template
 ├─ package.json
 ├─ tsconfig.json
 └─ README.md
@@ -87,11 +93,9 @@ VECTOR_DB_PATH=./data/vectorstore.db
 
 ### Development
 ```bash
-npx tsx initMemory
+npm run dev
 ```
-```bash
-npx tsx server
-```
+
 ### Production
 ```bash
 npm run build
