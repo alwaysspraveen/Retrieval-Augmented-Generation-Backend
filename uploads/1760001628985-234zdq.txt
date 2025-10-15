@@ -1,0 +1,16 @@
+characteristics_
+Tesseract OCR:
+Technology: Tesseract is a traditional OCR engine that uses a rule-based and
+pattern matching approach: It analyzes character shapes and features to
+recognize text.
+Strengths:
+Mature and well-established; with a long history of development:
+Supports a wide range of languages (over 100)
+Can be highly accurate; especially when trained with specific datasets:
+Generally performs well on clean; well-structured documents with clear text.
+Often performs better on CPU machines for speed.
+Limitations:
+Can struggle with low-quality images; varied fonts, and complex layouts
+May require more pre-processing of images for optimal results:
+Less effective with handwritten text or text in natural scenes
+COCUCCd

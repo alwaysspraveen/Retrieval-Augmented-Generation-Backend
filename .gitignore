@@ -1,0 +1,15 @@
+# Environment files
+.env
+*.env
+
+# Service accounts
+src/utils/service-account.json
+
+# Dependencies
+node_modules/
+
+# Optional: logs and build
+logs/
+*.log
+dist/
+build/
