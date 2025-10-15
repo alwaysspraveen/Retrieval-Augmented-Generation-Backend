@@ -1,5 +1,5 @@
 
-# 🧠 Self-Reflection Agentic RAG Backend
+# 🧠 Self-Reflection Agentic RAG Model
 
 A production-ready **Agentic RAG (Retrieval-Augmented Generation)** backend built with **Node.js + TypeScript**, designed to provide **autonomous reasoning, memory, and self-improving AI responses**.  
 It combines **retrieval, self-reflection, memory storage, and planning** to deliver more accurate, contextual, and human-like answers over time.
